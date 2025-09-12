@@ -19,16 +19,15 @@ jobs:
           cmake-version: '3.27.2'
 
       - name: Install Visual Studio Build Tools
-        uses: microsoft/setup-visual-studio@v1
+        uses: microsoft/setup-msbuild@v2
         with:
           vs-version: '2022'
-          include-msbuild: true
+          msbuild-architecture: 'x64'
 
       - name: Build Plugin
         run: |
           cmake -S . -B build -G "Visual Studio 17 2022" -A x64
           cmake --build build --config Release
-
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -51,7 +50,6 @@ jobs:
         run: |
           cmake -S . -B build -G "Xcode"
           cmake --build build --config Release
-
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
