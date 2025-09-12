@@ -1,0 +1,4 @@
+Builds/
+.idea/
+cmake-build-*/
+JuceLibraryCode
