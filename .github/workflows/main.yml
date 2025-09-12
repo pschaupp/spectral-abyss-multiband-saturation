@@ -1,0 +1,74 @@
+name: Build JUCE Plugin
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-windows:
+    name: Build Windows VST3
+    runs-on: windows-latest
+    steps:
+      # 1. Checkout code
+      - uses: actions/checkout@v4
+
+      # 2. Setup CMake
+      - name: Setup CMake
+        uses: jwlawson/actions-setup-cmake@v1
+        with:
+          cmake-version: '3.27.2'
+
+      # 3. Setup MSBuild (Visual Studio)
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          vs-version: '2022'
+          msbuild-architecture: 'x64'
+
+      # 4. Configure and build
+      - name: Build Plugin (Release x64)
+        run: |
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+          cmake --build build --config Release
+
+      # 5. Upload VST3
+      - name: Upload Windows VST3
+        uses: actions/upload-artifact@v4
+        with:
+          name: vst3-windows
+          path: build/Release/Windows/*.vst3
+
+  build-macos:
+    name: Build macOS VST3 + AU
+    runs-on: macos-latest
+    steps:
+      # 1. Checkout code
+      - uses: actions/checkout@v4
+
+      # 2. Setup CMake
+      - name: Setup CMake
+        uses: jwlawson/actions-setup-cmake@v1
+        with:
+          cmake-version: '3.27.2'
+
+      # 3. Configure and build Xcode project
+      - name: Build Plugin (Release)
+        run: |
+          cmake -S . -B build -G "Xcode" -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+
+      # 4. Upload macOS VST3
+      - name: Upload macOS VST3
+        uses: actions/upload-artifact@v4
+        with:
+          name: vst3-macos
+          path: build/Release/*.vst3
+
+      # 5. Upload AU plugin
+      - name: Upload macOS AU
+        uses: actions/upload-artifact@v4
+        with:
+          name: au-macos
+          path: build/Release/MacOS/*.component
