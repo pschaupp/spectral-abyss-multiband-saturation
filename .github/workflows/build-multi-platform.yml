@@ -19,9 +19,10 @@ jobs:
           cmake-version: '3.27.2'
 
       - name: Install Visual Studio Build Tools
-        uses: microsoft/setup-msbuild@v1
+        uses: microsoft/setup-visual-studio@v1
         with:
           vs-version: '2022'
+          include-msbuild: true
 
       - name: Build Plugin
         run: |
