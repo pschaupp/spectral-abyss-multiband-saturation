@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: vst3-windows
-          path: build/Release/**/*.vst3
+          path: build/**/*.vst3
 
 
   build-macos:
@@ -51,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: vst3-macos
-          path: build/Release/**/*.vst3
+          path: build/**/*.vst3
