@@ -23,3 +23,7 @@ It allows the distortion of three individual frequency bands using two different
   ~/Library/Audio/Plug-Ins/VST3 # or
   /Library/Audio/Plug-Ins/VST3
   ```
+* Note: On macOS you also need to remove the quarantine attribute that macOS adds to downloaded files:
+  ```bash
+  xattr -rd com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/SpectralAbyss-build-v001-macOS
+  ```
