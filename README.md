@@ -14,7 +14,7 @@ It allows the distortion of three individual frequency bands using two different
 ## Installation
 * Download the latest Release for your operating system from the [Release Page](https://github.com/pschaupp/spectral-abyss-multiband-saturation/releases/latest)
 * Unzip the directory
-* Move the unzipped directory into your VST3 Plugin Folder
+* Move the unzipped directory into your VST3 Plugin Folder:
   ```bash
   # Windows
   C:\Program Files\Common Files\VST3
