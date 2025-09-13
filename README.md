@@ -10,3 +10,16 @@ It allows the distortion of three individual frequency bands using two different
 * Two distortion types (tanh and tape)
 * Spectrum analyser
 * Automatic makeup gain
+
+## Installation
+* Download the latest Release for your operating system from the [Release Page](https://github.com/pschaupp/spectral-abyss-multiband-saturation/releases/latest)
+* Unzip the directory
+* Move the unzipped directory into your VST3 Plugin Folder
+  ```bash
+  # Windows
+  C:\Program Files\Common Files\VST3
+  
+  # macOS
+  ~/Library/Audio/Plug-Ins/VST3 # or
+  /Library/Audio/Plug-Ins/VST3
+  ```
