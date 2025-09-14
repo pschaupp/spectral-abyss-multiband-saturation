@@ -28,24 +28,25 @@ jobs:
 
 
   build-macos:
-    name: Build macOS
+    name: Build macOS (Universal)
     runs-on: macos-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup CMake
         uses: jwlawson/actions-setup-cmake@v1
         with:
           cmake-version: '3.27.2'
 
-      - name: Build Plugin
+      - name: Build Universal Plugin
         run: |
-          cmake -S . -B build -G "Xcode"
+          # Tell CMake/Xcode to build both x86_64 and arm64
+          cmake -S . -B build -G "Xcode" -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"
           cmake --build build --config Release
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vst3-macos
+          name: vst3-macos-universal
           path: build/**/*.vst3
