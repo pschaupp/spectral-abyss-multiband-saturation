@@ -12,7 +12,7 @@ It allows the distortion of three individual frequency bands using two different
 * Automatic makeup gain
 
 ## Installation
-* Download the latest Release for your operating system from the [Release Page](https://github.com/pschaupp/spectral-abyss-multiband-saturation/releases/latest)
+* Download the latest release for your operating system from the [Release Page](https://github.com/pschaupp/spectral-abyss-multiband-saturation/releases/latest)
 * Unzip the directory
 * Move the unzipped directory into your VST3 Plugin Folder:
   ```bash
