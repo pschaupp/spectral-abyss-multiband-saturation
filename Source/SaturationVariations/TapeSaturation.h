@@ -14,8 +14,11 @@ private:
     int numChannels = 1;
 
     // Filters
-    juce::dsp::IIR::Filter<float> lowPassFilter;
-    juce::dsp::IIR::Filter<float> headBumpFilter;
+    //juce::dsp::IIR::Filter<float> lowPassFilter;
+    //juce::dsp::IIR::Filter<float> headBumpFilter;
+    std::vector<juce::dsp::IIR::Filter<float>> lowPassFilters;
+    std::vector<juce::dsp::IIR::Filter<float>> headBumpFilters;
+
 
     // Parameters
     float amount = 1.0f;

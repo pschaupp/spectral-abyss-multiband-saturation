@@ -27,6 +27,8 @@ private:
     juce::Slider crossoverSliderLowMid;
     juce::Slider crossoverSliderMidHigh;
 
+    juce::GlowEffect glow;
+
     juce::Label saturationLabelLow;
     juce::Label saturationLabelMid;
     juce::Label saturationLabelHigh;

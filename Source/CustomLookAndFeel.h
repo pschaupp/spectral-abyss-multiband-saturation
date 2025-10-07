@@ -25,4 +25,5 @@ public:
         setColour(juce::Label::textColourId, juce::Colours::aliceblue);
 
     }
+
 };

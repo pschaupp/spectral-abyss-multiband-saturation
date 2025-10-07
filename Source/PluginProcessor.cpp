@@ -79,7 +79,7 @@ void SaturationAudioProcessor::changeProgramName(int index, const juce::String &
 
 //============================================================================ ==
 void SaturationAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock) {
-    const int channels = getTotalNumInputChannels();
+    const int channels = getTotalNumOutputChannels();
 
     tanhSaturationLow->prepare(sampleRate, samplesPerBlock, channels);
     tanhSaturationMid->prepare(sampleRate, samplesPerBlock, channels);
@@ -154,6 +154,16 @@ void SaturationAudioProcessor::processBlock(juce::AudioBuffer<float> &buffer, ju
     juce::ScopedNoDenormals noDenormals;
     const int totalNumInputChannels = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
+
+
+    const int numSamples = buffer.getNumSamples();
+    if (lowBuf.getNumSamples() != numSamples)
+    {
+        lowBuf.setSize(totalNumOutputChannels, numSamples, false, false, true);
+        midBuf.setSize(totalNumOutputChannels, numSamples, false, false, true);
+        highBuf.setSize(totalNumOutputChannels, numSamples, false, false, true);
+    }
+
 
     const float saturationTypeChoice = apvts.getRawParameterValue("saturationType")->load();
 
