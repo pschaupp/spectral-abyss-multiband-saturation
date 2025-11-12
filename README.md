@@ -1,6 +1,6 @@
 # SpectralAbyss Multiband-Saturation VST Plugin
 
-<img width="500" alt="SpectralAbyssScreenshot" src="https://github.com/user-attachments/assets/0f55000b-6675-4339-9b2d-c05b0eaf80f4" />
+<img width="500" alt="Screenshot 2025-10-09 213400" src="https://github.com/user-attachments/assets/4bbae67f-9fc7-4083-828e-fdd3aa42a445" />
 
 **SpectralAbyss** is a multiband saturation audio plugin built with [JUCE](https://juce.com/).
 It allows the distortion of three individual frequency bands using two different distortion algorithms.
