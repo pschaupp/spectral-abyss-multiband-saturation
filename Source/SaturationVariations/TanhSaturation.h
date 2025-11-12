@@ -10,7 +10,7 @@ class TanhSaturation final : public SaturationProcessor {
         for (int channel = 0; channel < numInputChannels; ++channel) {
             float *channelData = block.getChannelPointer(channel);
             for (int sample = 0; sample < block.getNumSamples(); ++sample) {
-                channelData[sample] = std::tanh(amount * channelData[sample]) / (0.9f * norm);
+                channelData[sample] = std::tanh(amount * channelData[sample]) / (1.5f * norm);
             }
         }
     }

@@ -46,7 +46,7 @@ void TapeSaturation::processBlock(juce::dsp::AudioBlock<float> block, const floa
         for (int sample = 0; sample < block.getNumSamples(); ++sample) {
             channelData[sample] = hysteresisFilter(channelData[sample]);
             channelData[sample] += bias;
-            channelData[sample] = std::tanh(amount * channelData[sample]) / (0.9f * norm);
+            channelData[sample] = std::tanh(amount * channelData[sample]) / (1.5f * norm);
             channelData[sample] -= bias * 0.5f;
         }
     }
